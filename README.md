@@ -4,6 +4,7 @@
 1. [Описание](#desc);
 2. [Выполненные требования](#req);
 3. [Структура](#struct)
+4. [Документация](#docs)
 
 
 ### <a name="desc"></a> Описание  
@@ -22,3 +23,6 @@
 
 ### <a name="struct"></a> Структура проекта
 .sln файл решения содержит два проекта - TestTask_SimbirSoft, где реализовано задание, и TestTask_SimbirSoft_Test - проект с тестами.
+
+### <a name="docs"></a> Документация
+Автосгенерированная документация (doxygen) находится здесь https://sajoniks.github.io/SimbirSoft_BackendDotnetTask/
