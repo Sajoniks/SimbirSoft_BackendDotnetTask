@@ -20,13 +20,36 @@ namespace TestTask_SimbirSoft
             // Init command line parser with project specific settings
             new ParserInit().Configure(new TestTaskParserConfigurator());
 
+            string website = String.Empty;
+            bool bFlushStats = true;
+
             try
             {
                 // Get website URI that will be parsed
-                string website = Parser.Get<StringArgument>("--web");
+                website = Parser.Get<StringArgument>("--web");
+            }
+            catch (Exception e)
+            {
+                Logger.Error($"Failed to parse needed command line argument --web. Fallback to default");
+                website = "https://www.simbirsoft.com";
+                Logger.Info($"Setting default --web={website}");
+            }
+
+            try
+            {
                 // Will flush words statistics to console?
-                bool flushStats = !Parser.Get<BoolArgument>("--silent");
-                
+                bFlushStats = !Parser.Get<BoolArgument>("--silent");
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Failed to parse needed command line argument: --silent");
+                bFlushStats = true;
+                Logger.Error($"Setting default --silent={bFlushStats}");
+            }
+            
+            
+            try
+            {
                 Uri uri = new Uri(website);
                 Logger.Info($"Preparing {uri} for parsing.");
 
@@ -50,7 +73,7 @@ namespace TestTask_SimbirSoft
                     Logger.Info($"Parsed statistics for {words.Count} words");   
                     
                     // Put stats to logs
-                    if (flushStats)
+                    if (bFlushStats)
                         foreach (var word in words)
                         {
                             Logger.Info($"{word.Key} : {word.Value}");

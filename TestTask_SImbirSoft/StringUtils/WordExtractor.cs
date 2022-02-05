@@ -88,20 +88,22 @@ namespace TestTask_SimbirSoft.StringUtils
         {
             if (_statisticsCache == null)
             {
-                var result = new Dictionary<string, int>();
-                var words = GetWords();
-                foreach (var word in words)
+                using (var stat = new ScopedStatCounter("Histogram"))
                 {
-                    int value = 0;
-                    if (!result.TryGetValue(word, out value))
+                    var result = new Dictionary<string, int>();
+                    var words = GetWords();
+                    foreach (var word in words)
                     {
-                        result.Add(word, 0);
-                    }
-            
-                    result[word] += 1;
-                }
+                        int value = 0;
+                        if (!result.TryGetValue(word, out value))
+                        {
+                            result.Add(word, 0);
+                        }
 
-                _statisticsCache = result;
+                        result[word] += 1;
+                    }
+                    _statisticsCache = result;
+                }
             }
             return _statisticsCache;
         }
