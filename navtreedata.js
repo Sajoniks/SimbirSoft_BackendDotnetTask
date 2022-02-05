@@ -29,7 +29,8 @@ var NAVTREE =
       [ "Тестовое задание на Backend-практикум 2022", "md__r_e_a_d_m_e.html#autotoc_md1", [
         [ "<a name=\"desc\"></a> Описание", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
         [ "<a name=\"req\"></a> Что реализовано", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-        [ "<a name=\"struct\"></a> Структура проекта", "md__r_e_a_d_m_e.html#autotoc_md4", null ]
+        [ "<a name=\"struct\"></a> Структура проекта", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
+        [ "<a name=\"docs\"></a> Документация", "md__r_e_a_d_m_e.html#autotoc_md5", null ]
       ] ]
     ] ],
     [ "Packages", "namespaces.html", [
